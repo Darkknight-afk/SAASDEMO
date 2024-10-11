@@ -26,7 +26,13 @@ SECRET_KEY = config('SECRET_KEY', cast=str, default=None)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=str, default=False)
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [
+    ".railway.app"
+]
+if DEBUG:
+    ALLOWED_HOSTS += [
+        '*'
+    ]
 
 INTERNAL_IPS = [
     "127.0.0.1",
