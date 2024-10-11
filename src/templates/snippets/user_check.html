@@ -1,0 +1,10 @@
+
+{% if request.user.is_authenticated %}
+
+<h1>Hello {{ request.user }} </h1>
+
+{% else %}
+
+<h1>You are not user </h1>
+
+{% endif %}

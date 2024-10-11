@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+{{ title }}
+{% endblock title %}
+
+{% block content %}
+<h2>Page Visits: {{ qs.count }}</h2>
+<h2>Total Visits: {{ total_qs.count }}</h2>
+<h2>Percent: {{ percent }}%</h2>
+
+
+{% include 'snippets/user_check.html'  %}
+
+{% endblock content %}
