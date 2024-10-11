@@ -15,5 +15,7 @@ def home_page_view(request):
       'total_qs': total_qs,
       'percent': percent
    }
+
+   
     Visit.objects.create(path=request.path)
     return render(request, 'home/home.html', context=context)
