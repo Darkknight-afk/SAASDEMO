@@ -18,3 +18,4 @@ django-celery-results
 flower
 dj-database-url
 redis
+requests

@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     "django_htmx",
     #myapps
     'visits',
+    'commando',
 ]
 
 MIDDLEWARE = [
@@ -174,8 +175,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_FILES_DIRS = [BASE_DIR / 'static']
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+STATIC_FILES_BASE_DIRS = BASE_DIR / 'staticfiles'
+
+STATIC_FILES_BASE_DIRS.mkdir(exist_ok=True, parents=True)
+
+STATIC_FILES_VENDORS = STATIC_FILES_BASE_DIRS / 'vendors'
+
+STATICFILES_DIRS = [STATIC_FILES_BASE_DIRS]
+
+
+
+STATIC_ROOT = BASE_DIR.parent / 'prod-cdn'
 #Whitenoise && boto3 storage
 STORAGES = {
     "staticfiles": {
