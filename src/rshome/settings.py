@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'django_celery_results',
     #allauth apps
     'allauth_ui',
+    'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -249,15 +250,27 @@ ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = '/'  # Redirect to home for 
 ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = '/'  # Redirect to home for authenticated users
 ACCOUNT_EMAIL_NOTIFICATIONS = True  # Notify about account changes
 ACCOUNT_LOGIN_ON_PASSWORD_RESET = True  # Log in user after password reset
+LOGIN_REDIRECT_URL = '/'
+ACCOUNT_LOGOUT_REDIRECT_URL = '/'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY', cast=str, default=None)
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = config('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET', cast=str, default=None)
 
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'APP': {
+            'client_id': SOCIAL_AUTH_GOOGLE_OAUTH2_KEY,
+            'secret': SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET
+        },
+        'SCOPE': ['profile', 'email'],
+        'AUTH_PARAMS': {'access_type': 'online'},
+    }
+}
 
-
+# Add your Google Client ID and Secret here
+SITE_ID = 1
 #TAILWIND
 # TAILWIND_APP_NAME = 'theme'
 
 if DEBUG:
     INSTALLED_APPS.append('django_browser_reload')
     MIDDLEWARE.append("django_browser_reload.middleware.BrowserReloadMiddleware")
-
-
-

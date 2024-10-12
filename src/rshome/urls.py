@@ -21,7 +21,9 @@ from debug_toolbar.toolbar import debug_toolbar_urls
 from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home_page_view, name='home')
+    path('', views.home_page_view, name='home'),
+    path('accounts/', include('allauth.urls')),
+
 ]
 
 if settings.DEBUG:

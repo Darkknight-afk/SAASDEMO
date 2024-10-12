@@ -7,7 +7,8 @@ STATIC_FILES_VENDORS = settings.STATIC_FILES_VENDORS
 
 urls = {
         'flowbite.min.css': 'https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css',
-        'flowbite.min.js':'https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js'
+        'flowbite.min.js':'https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js',
+        'flowbite.min.js.map': 'https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js.map'
     }
 
 class Command(BaseCommand):
