@@ -19,10 +19,14 @@ from django.urls import path, include
 from django.conf import settings
 from debug_toolbar.toolbar import debug_toolbar_urls
 from . import views
+from profiles import urls as profile_urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home_page_view, name='home'),
     path('accounts/', include('allauth.urls')),
+    path('protected/', views.pw_protected_view, name='protected'),
+    path('protected/user-only/', views.user_only_view, name='user_only'),
+    path('profile/', include(profile_urls, namespace='profile')),
 
 ]
 

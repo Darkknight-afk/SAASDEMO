@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>You do not have have access please enter password</h1>
+<form action="{% url 'protected' %}" method="post">
+    {% csrf_token %}
+<input type="password"  label='enter your password' name="password">
+<button type="submit"> Enter </button>
+</form>
+{% endblock content %}

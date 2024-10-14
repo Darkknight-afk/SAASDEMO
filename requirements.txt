@@ -19,3 +19,4 @@ flower
 dj-database-url
 redis
 requests
+stripe
